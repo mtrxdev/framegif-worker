@@ -15,8 +15,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates
 COPY --from=gifski /opt/gifski/bin/gifski /usr/local/bin/gifski
 COPY --from=worker /src/target/release/framegif-worker /usr/local/bin/framegif-worker
 ENV LISTEN_ADDR=0.0.0.0:8080
-ENV FFMPEG_BIN=/usr/local/bin/ffmpeg
-ENV FFPROBE_BIN=/usr/local/bin/ffprobe
+ENV FFMPEG_BIN=/usr/bin/ffmpeg
+ENV FFPROBE_BIN=/usr/bin/ffprobe
 ENV GIFSKI_BIN=/usr/local/bin/gifski
 EXPOSE 8080
 CMD ["framegif-worker"]
